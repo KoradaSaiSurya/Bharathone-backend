@@ -19,26 +19,11 @@ app.use(express.json());          // Parse JSON bodies
 app.use(morgan('dev'));           // Log HTTP requests
 app.use('/images', express.static('public/images')); // Serve static images
 
-// ===== Routes =====
-// Auth routes
-app.use('/api/auth', require('./routes/auth'));
 
-// Courses
-app.use('/api/courses', require('./routes/courses'));
 
-// Resume builder
-app.use('/api/resume', require('./routes/resume'));
-
-// Government services
-// app.use('/api/gov', require('./routes/gov'));
-
-// HealthTech
-app.use("/api/patients", require("./routes/Health/patientRoutes"));
-app.use("/api/fevers", require("./routes/Health/feverRoutes"));
 
 // AgriTech
 app.use('/api/diagnose', require("./routes/AgriTech/diagnose"));
-// app.use('/api/weather', require('./routes/AgriTech/weatherRoutes')); // Optional: Uncomment if needed
 
 // ===== Default route =====
 app.get('/', (req, res) => {
